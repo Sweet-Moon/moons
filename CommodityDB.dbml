@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Commodity" Class="CommodityDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=127.0.0.1;Initial Catalog=Commodity;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="CommodityConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TB_Brand" Member="TB_Brand">
+    <Type Name="TB_Brand">
+      <Column Name="ID" Type="System.String" DbType="VarChar(32) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BrandName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IsShow" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Association Name="TB_Brand_TB_Goods" Member="TB_Goods" ThisKey="ID" OtherKey="BrandID" Type="TB_Goods" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TB_Log" Member="TB_Log">
+    <Type Name="TB_Log">
+      <Column Name="ID" Type="System.String" DbType="VarChar(32) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ErrorContent" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TB_InWarehouse" Member="TB_InWarehouse">
+    <Type Name="TB_InWarehouse">
+      <Column Name="ID" Type="System.String" DbType="VarChar(32) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GoodsID" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
+      <Column Name="NowCount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="InCount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="InUser" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
+      <Column Name="InDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="InRemarks" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="InPrice" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="InMoney" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="TB_Goods_TB_InWarehouse" Member="TB_Goods" ThisKey="GoodsID" OtherKey="ID" Type="TB_Goods" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TB_OutWarehouse" Member="TB_OutWarehouse">
+    <Type Name="TB_OutWarehouse">
+      <Column Name="ID" Type="System.String" DbType="VarChar(32) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GoodsID" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
+      <Column Name="NowCount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="OutCount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="OutUser" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
+      <Column Name="OutDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OutRemarks" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="OutPrice" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="OutMoney" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="TB_Goods_TB_OutWarehouse" Member="TB_Goods" ThisKey="GoodsID" OtherKey="ID" Type="TB_Goods" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TB_Goods" Member="TB_Goods">
+    <Type Name="TB_Goods">
+      <Column Name="ID" Type="System.String" DbType="VarChar(32) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="BrandID" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
+      <Column Name="Counts" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CostMoney" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SoldMoney" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="TB_Goods_TB_InWarehouse" Member="TB_InWarehouse" ThisKey="ID" OtherKey="GoodsID" Type="TB_InWarehouse" />
+      <Association Name="TB_Goods_TB_OutWarehouse" Member="TB_OutWarehouse" ThisKey="ID" OtherKey="GoodsID" Type="TB_OutWarehouse" />
+      <Association Name="TB_Brand_TB_Goods" Member="TB_Brand" ThisKey="BrandID" OtherKey="ID" Type="TB_Brand" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TB_User" Member="TB_User">
+    <Type Name="TB_User">
+      <Column Name="ID" Type="System.String" DbType="VarChar(32) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LoginName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PassWord" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IsShow" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

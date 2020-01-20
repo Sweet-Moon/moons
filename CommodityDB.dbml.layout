@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="CommodityDB">
+  <DataContextMoniker Name="/CommodityDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="1c9a04b6-8710-4892-9417-7c8b8682288b" absoluteBounds="3.5, 0.625, 2, 1.7220992024739581">
+      <DataClassMoniker Name="/CommodityDBDataContext/TB_Brand" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d103e77d-2695-45a2-a8c9-97edd2bd69d5" absoluteBounds="3.5150000000000006, 1.085, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d4f824f3-5652-4c33-993d-b1d25be3bc60" absoluteBounds="6.25, 0.875, 2, 1.3525109863281251">
+      <DataClassMoniker Name="/CommodityDBDataContext/TB_Log" />
+      <nestedChildShapes>
+        <elementListCompartment Id="72841bc9-9d9f-4dc2-9de6-3541eb01fa06" absoluteBounds="6.2650000000000006, 1.335, 1.9700000000000002, 0.792510986328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a82e50d6-fbb2-453f-abc1-c6b97ba50a2b" absoluteBounds="1, 3.625, 2, 2.4612756347656251">
+      <DataClassMoniker Name="/CommodityDBDataContext/TB_InWarehouse" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7d7228a3-91a1-4c5a-bb45-c0ac29221cf4" absoluteBounds="1.0150000000000001, 4.085, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b7aa5e03-1542-40c8-97d5-8508707e2c80" absoluteBounds="5.625, 3.625, 2, 2.4612756347656251">
+      <DataClassMoniker Name="/CommodityDBDataContext/TB_OutWarehouse" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ca290994-36c2-4cbe-a585-bb6e26d9f20b" absoluteBounds="5.64, 4.085, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eae3dbd9-6f73-475f-814a-4ca4e700264e" absoluteBounds="3.375, 3.25, 2, 2.6460697428385416">
+      <DataClassMoniker Name="/CommodityDBDataContext/TB_Goods" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2fc598e4-86c0-42a4-9be7-0fd17e39fac0" absoluteBounds="3.39, 3.71, 1.9700000000000002, 2.0860697428385415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.375 : 4.76053487141927); (3 : 4.76053487141927)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CommodityDBDataContext/TB_Goods/TB_Goods_TB_InWarehouse" />
+      <nodes>
+        <classShapeMoniker Id="eae3dbd9-6f73-475f-814a-4ca4e700264e" />
+        <classShapeMoniker Id="a82e50d6-fbb2-453f-abc1-c6b97ba50a2b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.375 : 4.76053487141927); (5.625 : 4.76053487141927)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CommodityDBDataContext/TB_Goods/TB_Goods_TB_OutWarehouse" />
+      <nodes>
+        <classShapeMoniker Id="eae3dbd9-6f73-475f-814a-4ca4e700264e" />
+        <classShapeMoniker Id="b7aa5e03-1542-40c8-97d5-8508707e2c80" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.4375 : 2.34709920247396); (4.4375 : 3.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CommodityDBDataContext/TB_Brand/TB_Brand_TB_Goods" />
+      <nodes>
+        <classShapeMoniker Id="1c9a04b6-8710-4892-9417-7c8b8682288b" />
+        <classShapeMoniker Id="eae3dbd9-6f73-475f-814a-4ca4e700264e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="5f19e49f-1175-4639-94d0-5969de5f6bae" absoluteBounds="0.75, 0.625, 2, 2.0916874186197916">
+      <DataClassMoniker Name="/CommodityDBDataContext/TB_User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="317e2741-07d6-4d96-b06f-d7b70505379f" absoluteBounds="0.76499999999999968, 1.085, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
